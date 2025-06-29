@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de Voyage au Japon - Juillet 2025</title>
+    <style>
+        :root {
+            --primary-color: #e94560;
+            --secondary-color: #0f3460;
+            --accent-color: #ff9e00;
+            --light-color: #f8f8f8;
+            --dark-color: #16213e;
+            --text-color: #333;
+            --light-text: #f8f8f8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0.5rem;
+        }
+        
+        nav li {
+            margin: 0.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        h4 {
+            color: var(--secondary-color);
+            margin: 1rem 0 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+        }
+        
+        .card-header h3 {
+            color: white;
+            margin: 0;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .activity {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .activity-time {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .map {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tips {
+            background-color: #f0f8ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .tip-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .tab-button {
+            background-color: #eee;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .tab.active {
+            display: block;
+        }
+        
+        .main-tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+        
+        .main-tab-button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .main-tab-button.active {
+            background-color: var(--primary-color);
+        }
+        
+        .main-tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .main-tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 99;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .sources {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        
+        .city-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .city-section h3 {
+            color: var(--secondary-color);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .festival-card {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffd54f;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .restaurant-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .restaurant-card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .restaurant-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .restaurant-info div {
+            margin-right: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .restaurant-info strong {
+            color: var(--secondary-color);
+        }
+        
+        .conseil-card {
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .conseil-card h4 {
+            color: #0d47a1;
+            margin-top: 0;
+        }
+        
+        .highlight-activity {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .hotel-card {
+            background-color: #e8eaf6;
+            border-left: 4px solid #3f51b5;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guide de Voyage au Japon</h1>
+        <p>Séjour du 7 au 27 juillet 2025</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#itineraire">Itinéraire</a></li>
+            <li><a href="#hidden-gems">Hidden Gems</a></li>
+            <li><a href="#festivals">Festivals</a></li>
+            <li><a href="#restaurants">Restaurants</a></li>
+            <li><a href="#conseils">Conseils Pratiques</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Informations de vol</h3>
+                </div>
+                <div class="card-body">
+                    <div class="activity">
+                        <h4>Vol aller</h4>
+                        <p><strong>Date :</strong> 7 juillet 2025</p>
+                        <p><strong>Arrivée :</strong> Aéroport de Narita à 13h30</p>
+                    </div>
+                    
+                    <div class="activity">
+                        <h4>Vol retour</h4>
+                        <p><strong>Date :</strong> 28 juillet 2025</p>
+                        <p><strong>Départ :</strong> 23h00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="background-color: #16213e; color: white;">
+                <div class="card-body">
+                    <h3 style="color: white;">Aperçu du séjour par ville</h3>
+                    <ul>
+                        <li><strong>Tokyo (premier séjour) :</strong> 7 juillet - 10 juillet</li>
+                        <li><strong>Lac Yamanaka :</strong> 10 juillet - 12 juillet</li>
+                        <li><strong>Karuizawa :</strong> 12 juillet - 13 juillet</li>
+                        <li><strong>Matsumoto :</strong> 13 juillet - 14 juillet</li>
+                        <li><strong>Shirakawa-Go & Kanazawa :</strong> 14 juillet - 15 juillet</li>
+                        <li><strong>Miyazu & Ine :</strong> 15 juillet - 17 juillet</li>
+                        <li><strong>Kinosaki Onsen :</strong> 17 juillet - 18 juillet</li>
+                        <li><strong>Himeji :</strong> 18 juillet - 19 juillet</li>
+                        <li><strong>Osaka :</strong> 19 juillet - 22 juillet</li>
+                        <li><strong>Kyoto :</strong> 22 juillet - 25 juillet</li>
+                        <li><strong>Nagoya :</strong> 25 juillet - 26 juillet</li>
+                        <li><strong>Tokyo (retour) :</strong> 26 juillet - 28 juillet</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="itineraire">
+            <h2>Itinéraire</h2>
+            
+            <div class="card" style="background-color: #16213e; color: white;">
+                <div class="card-body">
+                    <h3 style="color: white;">Aperçu de votre voyage</h3>
+                    <ul>
+                        <li><strong>Arrivée à Tokyo :</strong> 7 juillet 2025 à 13h30 (Aéroport de Narita)</li>
+                        <li><strong>Premier séjour à Tokyo :</strong> 7 juillet au 10 juillet 2025</li>
+                        <li><strong>Circuit dans le centre du Japon :</strong> 10 juillet au 26 juillet 2025</li>
+                        <li><strong>Retour à Tokyo :</strong> 26 juillet au 28 juillet 2025</li>
+                        <li><strong>Départ de Tokyo :</strong> 28 juillet 2025 à 23h00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="main-tab-buttons">
+                <button class="main-tab-button active" onclick="openMainTab(event, 'tokyo-tab')">Tokyo</button>
+                <button class="main-tab-button" onclick="openMainTab(event, 'circuit-tab')">Circuit Japon Central</button>
+            </div>
+            
+            <div id="tokyo-tab" class="main-tab-content active">
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" onclick="openTab(event, 'jour1')">Jour 1 (7 juillet)</button>
+                        <button class="tab-button" onclick="openTab(event, 'jour2')">Jour 2 (8 juillet)</button>
+                        <button class="tab-button" onclick="openTab(event, 'jour3')">Jour 3 (9 juillet)</button>
+                        <button class="tab-button" onclick="openTab(event, 'jour4')">Jour 4 (10 juillet)</button>
+                        <button class="tab-button" onclick="openTab(event, 'jour26')">Retour (26-28 juillet)</button>
+                    </div>
+                    
+                    <div id="jour1" class="tab active">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Jour 1 : Arrivée et découverte des environs (7 juillet)</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="hotel-card">
+                                    <h4>Hébergement</h4>
+                                    <p><strong>APA Hotel PRIDE Akasaka Kokkaigijidomae</strong></p>
+                                    <p>Adresse : 2-10-2, Nagata-cho, Chiyoda-ku, Tokyo, 100-0014</p>
+                                    <p>Check-in : 15h00 | Check-out : 10h00 (10 juillet)</p>
+                                </div>
+                                
+                                <div class="activity">
+                                    <h4>Arrivée à l'aéroport de Narita</h4>
+                                    <p class="activity-time">13h30</p>
+                                    <p>Après votre arrivée, prenez le train Narita Express (N'EX) jusqu'à la gare de Tokyo (environ 1h).</p>
+                                </div>
+                                
+                                <div class="activity">
+                                    <h4>Installation à l'hôtel</h4>
+                                    <p class="activity-time">16h00 - 17h00</p>
+                                    <p>Depuis la gare de Tokyo, prenez la ligne Marunouchi jusqu'à la station Kokkai-gijidomae (environ 15 minutes) et installez-vous à l'APA Hotel PRIDE Akasaka.</p>
+                                </div>
+                                
+                                <div class="activity">
+                                    <h4>Promenade dans le quartier de Chiyoda</h4>
+                                    <p cl
+(Content truncated due to size limit. Use line ranges to read in chunks)
